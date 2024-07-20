@@ -13,3 +13,7 @@ config_version=5
 config/name="project-backrooms"
 run/main_scene="res://main_scene.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
+
+[dotnet]
+
+project/assembly_name="project-backrooms"
