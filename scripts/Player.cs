@@ -52,7 +52,7 @@ public partial class Player : Sprite2D
 		if (!horizKeyDown && !vertKeyDown) {
 			velocity.X *= Math.Abs(velocity.X) < 0.2 ? 0 : SlowdownMult;
 		} else if (!horizKeyDown && vertKeyDown) {
-			velocity.Y = 0;
+			velocity.X = 0;
 		}
 
 		// Apply velocity to object position
