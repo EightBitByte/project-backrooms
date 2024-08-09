@@ -1,61 +1,54 @@
-using Godot;
 using System;
+using Godot;
 
-public partial class Player : Sprite2D
+public partial class Player : CharacterBody2D
 {
-	Vector2 velocity;
+	// Vector2 velocity;
 
 	[Export]
-	public float SlowdownMult = 0.95f;
+	public float MomentumRetained = 0.92f;
+
+	[Export]
+	public float StopThreshold { get; set; } = 0.3f;
+
+	[Export]
+	public int Speed { get; set; } = 200;
+
+
+	private Vector2 calcVelocity = Vector2.Zero;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		var velocity = Vector2.Zero;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
-
-	// NOTE: I'm not sure as of yet, but this current movement system (I assume) 
-	// makes those with higher framerates faster. Look into using deltatime.
 	public override void _Process(double delta)
 	{
-		bool horizKeyDown = false, vertKeyDown = false;
-
-		// Handling movement input
-		if (Input.IsActionPressed("ui_left")) {
-			velocity.X = -1;
-			horizKeyDown = true;
-		}
-		if (Input.IsActionPressed("ui_right")) {
-			velocity.X = 1;
-			horizKeyDown = true;
-		}
-		if (Input.IsActionPressed("ui_up")) {
-			velocity.Y = -1;
-			vertKeyDown = true;
-		}
-		if (Input.IsActionPressed("ui_down")) {
-			velocity.Y = 1;
-			vertKeyDown = true;
-		}
-
-		// Slow down the velocity until below a threshold to stop
-
-		// Ensuring skid-stop doesn't occur along other axis if we're still moving
-		if (!vertKeyDown && !horizKeyDown) {
-			velocity.Y *= Math.Abs(velocity.Y) < 0.2 ? 0 : SlowdownMult;
-		} else if (!vertKeyDown && horizKeyDown) {
-			velocity.Y = 0;
-		}
-
-		if (!horizKeyDown && !vertKeyDown) {
-			velocity.X *= Math.Abs(velocity.X) < 0.2 ? 0 : SlowdownMult;
-		} else if (!horizKeyDown && vertKeyDown) {
-			velocity.X = 0;
-		}
-
-		// Apply velocity to object position
-		Position += velocity;
 	}
+
+    public override void _PhysicsProcess(double delta)
+    {
+		Vector2 moveDirection = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
+		calcVelocity.X = moveDirection.X != 0 ? moveDirection.X : calcVelocity.X;
+		calcVelocity.Y = moveDirection.Y != 0 ? moveDirection.Y : calcVelocity.Y;
+
+		// If no keys are held, slowly slow down the player
+		if (moveDirection.Y == 0 && moveDirection.X == 0) {
+			calcVelocity.Y *= Math.Abs(calcVelocity.Y) < StopThreshold ? 0 : MomentumRetained;
+			calcVelocity.X *= Math.Abs(calcVelocity.X) < StopThreshold ? 0 : MomentumRetained;
+
+		// Otherwise, if we are holding move in one axis but not the other, stop moving in that other axis immediately
+		} else if (moveDirection.X != 0 && moveDirection.Y == 0) {
+			calcVelocity.Y = 0;
+		}
+		else if (moveDirection.X == 0 && moveDirection.Y != 0) {
+			calcVelocity.X = 0;
+		}
+
+		Velocity = calcVelocity * Speed;
+
+		MoveAndSlide();
+    }
 }
+
