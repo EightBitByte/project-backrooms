@@ -3,8 +3,6 @@ using Godot;
 
 public partial class Player : CharacterBody2D
 {
-	// Vector2 velocity;
-
 	[Export]
 	public float MomentumRetained = 0.92f;
 

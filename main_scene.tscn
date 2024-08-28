@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://b0eto18wolhas"]
+[gd_scene load_steps=11 format=3 uid="uid://b0eto18wolhas"]
 
 [ext_resource type="Texture2D" uid="uid://b334gu4wh5n1p" path="res://assets/tileset.png" id="1_3t2vk"]
+[ext_resource type="Script" path="res://scripts/Camera.cs" id="1_i33g2"]
 [ext_resource type="Texture2D" uid="uid://rly7p5bnnol8" path="res://assets/person.png" id="1_iivo5"]
 [ext_resource type="Script" path="res://scripts/Player.cs" id="2_toai5"]
 [ext_resource type="Texture2D" uid="uid://m5h5vujqcxgg" path="res://assets/enemy.png" id="3_qbtwa"]
@@ -58,6 +59,9 @@ size = Vector2(40, 90)
 
 [node name="Main Scene" type="Node2D"]
 
+[node name="Camera" type="Camera2D" parent="."]
+script = ExtResource("1_i33g2")
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_hwufw")
 format = 2
@@ -67,7 +71,6 @@ layer_0/tile_data = PackedInt32Array(1, 65537, 0, 2, 65537, 0, 3, 65537, 0, 4, 6
 position = Vector2(607, 323)
 scale = Vector2(0.15, 0.15)
 script = ExtResource("2_toai5")
-Traction = 0.9
 
 [node name="Player Sprite" type="Sprite2D" parent="Player"]
 texture = ExtResource("1_iivo5")
@@ -86,6 +89,6 @@ position = Vector2(-0.00012207, 0)
 scale = Vector2(0.18, 0.18)
 texture = ExtResource("3_qbtwa")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
+[node name="Enemy Collider" type="CollisionShape2D" parent="Enemy"]
 position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_ur2vj")
