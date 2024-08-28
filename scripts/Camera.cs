@@ -4,11 +4,12 @@ using System;
 public partial class Camera : Camera2D
 {
 	[Export]
-	float SafeArea = 300;
+	float SafeArea = 200;
 
 	CharacterBody2D tracking;
 	double timeElapsed;
 	Vector2 mousePos;
+	Vector2 viewportCenter;
 
 	public override void _Ready()
 	{
@@ -19,22 +20,22 @@ public partial class Camera : Camera2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		timeElapsed += delta;
-
-		mousePos = GetGlobalMousePosition();
-		timeElapsed = 0;
+		// If viewport was resized since last frame, update center
+		viewportCenter = GetViewportRect().Size / 2;
 
 		Vector2 center = tracking.Position;
+		mousePos = GetViewport().GetMousePosition() - viewportCenter;
 
+		Vector2 calcPosition = center + mousePos;
 
-		Vector2 calcPosition = center - (center - mousePos)/2;
+		// If the camera's distance from the center is greater than the safe area, 
+		// clamp to safe area
+		if (Math.Abs(mousePos.X) >= SafeArea)
+			calcPosition.X = mousePos.X > 0 ? center.X + SafeArea : center.X - SafeArea;
 
-		// If the distance from the center is greater than the safe area, clamp to safe area
-		if (calcPosition.DistanceTo(center) > SafeArea)
-			;
-
-
+		if (Math.Abs(mousePos.Y) >= SafeArea)
+			calcPosition.Y = mousePos.Y > 0 ? center.Y + SafeArea : center.Y - SafeArea;
+			
 		Position = calcPosition;
-
 	}
 }

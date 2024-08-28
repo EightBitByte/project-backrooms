@@ -60,7 +60,9 @@ size = Vector2(40, 90)
 [node name="Main Scene" type="Node2D"]
 
 [node name="Camera" type="Camera2D" parent="."]
-position = Vector2(606, 320)
+position = Vector2(607, 323)
+scale = Vector2(0.15, 0.15)
+zoom = Vector2(0.965, 0.965)
 script = ExtResource("1_i33g2")
 
 [node name="TileMap" type="TileMap" parent="."]
