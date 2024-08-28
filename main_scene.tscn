@@ -1,11 +1,16 @@
-[gd_scene load_steps=11 format=3 uid="uid://b0eto18wolhas"]
+[gd_scene load_steps=16 format=3 uid="uid://b0eto18wolhas"]
 
 [ext_resource type="Texture2D" uid="uid://b334gu4wh5n1p" path="res://assets/tileset.png" id="1_3t2vk"]
 [ext_resource type="Script" path="res://scripts/Camera.cs" id="1_i33g2"]
 [ext_resource type="Texture2D" uid="uid://rly7p5bnnol8" path="res://assets/person.png" id="1_iivo5"]
+[ext_resource type="Texture2D" uid="uid://c32ht4yk6hps" path="res://assets/talkinghead.svg" id="2_6oyeb"]
 [ext_resource type="Script" path="res://scripts/Player.cs" id="2_toai5"]
+[ext_resource type="Texture2D" uid="uid://d20ykarvxdnu2" path="res://assets/bar_under.svg" id="3_esal7"]
 [ext_resource type="Texture2D" uid="uid://m5h5vujqcxgg" path="res://assets/enemy.png" id="3_qbtwa"]
+[ext_resource type="Texture2D" uid="uid://balixl13pxt7" path="res://assets/bar_health.svg" id="4_fnujk"]
 [ext_resource type="Script" path="res://scripts/Enemy.cs" id="4_jrct8"]
+[ext_resource type="Texture2D" uid="uid://ccou43juaju00" path="res://assets/bar_hunger.svg" id="5_cyadm"]
+[ext_resource type="Texture2D" uid="uid://cdyt0soxawh6h" path="res://assets/bar_sanity.svg" id="6_acieh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ra818"]
 texture = ExtResource("1_3t2vk")
@@ -64,6 +69,54 @@ position = Vector2(607, 323)
 scale = Vector2(0.15, 0.15)
 zoom = Vector2(0.965, 0.965)
 script = ExtResource("1_i33g2")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera"]
+
+[node name="Player Head" type="Sprite2D" parent="Camera/CanvasLayer"]
+position = Vector2(506, 566)
+scale = Vector2(0.247992, 0.247992)
+texture = ExtResource("2_6oyeb")
+
+[node name="Player Name" type="RichTextLabel" parent="Camera/CanvasLayer"]
+offset_left = 545.0
+offset_top = 549.0
+offset_right = 589.0
+offset_bottom = 589.0
+bbcode_enabled = true
+text = "[color=black]Harry[/color]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Health Bar" type="TextureProgressBar" parent="Camera/CanvasLayer"]
+offset_left = 545.0
+offset_top = 582.0
+offset_right = 645.0
+offset_bottom = 588.0
+value = 95.0
+nine_patch_stretch = true
+texture_under = ExtResource("3_esal7")
+texture_progress = ExtResource("4_fnujk")
+
+[node name="Hunger Bar" type="TextureProgressBar" parent="Camera/CanvasLayer"]
+offset_left = 545.0
+offset_top = 593.0
+offset_right = 645.0
+offset_bottom = 599.0
+value = 50.0
+nine_patch_stretch = true
+texture_under = ExtResource("3_esal7")
+texture_progress = ExtResource("5_cyadm")
+
+[node name="Sanity Bar" type="TextureProgressBar" parent="Camera/CanvasLayer"]
+offset_left = 545.0
+offset_top = 604.0
+offset_right = 645.0
+offset_bottom = 610.0
+value = 90.0
+nine_patch_stretch = true
+texture_under = ExtResource("3_esal7")
+texture_progress = ExtResource("6_acieh")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_hwufw")
