@@ -1,8 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://b0eto18wolhas"]
+[gd_scene load_steps=17 format=3 uid="uid://b0eto18wolhas"]
 
 [ext_resource type="Texture2D" uid="uid://b334gu4wh5n1p" path="res://assets/tileset.png" id="1_3t2vk"]
 [ext_resource type="Script" path="res://scripts/Camera.cs" id="1_i33g2"]
-[ext_resource type="Texture2D" uid="uid://rly7p5bnnol8" path="res://assets/person.png" id="1_iivo5"]
 [ext_resource type="Texture2D" uid="uid://c32ht4yk6hps" path="res://assets/talkinghead.svg" id="2_6oyeb"]
 [ext_resource type="Script" path="res://scripts/Player.cs" id="2_toai5"]
 [ext_resource type="Texture2D" uid="uid://d20ykarvxdnu2" path="res://assets/bar_under.svg" id="3_esal7"]
@@ -11,6 +10,8 @@
 [ext_resource type="Script" path="res://scripts/Enemy.cs" id="4_jrct8"]
 [ext_resource type="Texture2D" uid="uid://ccou43juaju00" path="res://assets/bar_hunger.svg" id="5_cyadm"]
 [ext_resource type="Texture2D" uid="uid://cdyt0soxawh6h" path="res://assets/bar_sanity.svg" id="6_acieh"]
+[ext_resource type="Texture2D" uid="uid://7ipkjv10suth" path="res://assets/character.svg" id="9_c7utj"]
+[ext_resource type="Script" path="res://scripts/Inventory.cs" id="10_d0yow"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ra818"]
 texture = ExtResource("1_3t2vk")
@@ -57,7 +58,7 @@ physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_ra818")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eu8nf"]
-size = Vector2(233.333, 500)
+size = Vector2(240, 480)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ur2vj"]
 size = Vector2(40, 90)
@@ -67,7 +68,7 @@ size = Vector2(40, 90)
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(607, 323)
 scale = Vector2(0.15, 0.15)
-zoom = Vector2(0.965, 0.965)
+zoom = Vector2(1.25, 1.25)
 script = ExtResource("1_i33g2")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera"]
@@ -129,11 +130,13 @@ scale = Vector2(0.15, 0.15)
 script = ExtResource("2_toai5")
 
 [node name="Player Sprite" type="Sprite2D" parent="Player"]
-texture = ExtResource("1_iivo5")
+texture = ExtResource("9_c7utj")
 
 [node name="Player Collider" type="CollisionShape2D" parent="Player"]
-position = Vector2(-3.33325, -23.333)
 shape = SubResource("RectangleShape2D_eu8nf")
+
+[node name="Inventory Handler" type="Node" parent="Player"]
+script = ExtResource("10_d0yow")
 
 [node name="Enemy" type="CharacterBody2D" parent="."]
 position = Vector2(508, 319)
