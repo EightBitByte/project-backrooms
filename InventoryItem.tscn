@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://n28smgyfpe10"]
+[gd_scene load_steps=3 format=3 uid="uid://n28smgyfpe10"]
 
 [ext_resource type="Texture2D" uid="uid://bk5nks08bi6as" path="res://assets/green_thermos_inventory.svg" id="1_3d1f8"]
+[ext_resource type="Script" path="res://scripts/Item.cs" id="2_q7rjd"]
 
 [node name="Item" type="CenterContainer"]
 offset_right = 100.0
@@ -9,3 +10,4 @@ offset_bottom = 204.0
 [node name="Item Button" type="TextureButton" parent="."]
 layout_mode = 2
 texture_normal = ExtResource("1_3d1f8")
+script = ExtResource("2_q7rjd")

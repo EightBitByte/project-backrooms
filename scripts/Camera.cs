@@ -16,7 +16,7 @@ public partial class Camera : Camera2D
 	public override void _Ready()
 	{
 		MakeCurrent();
-		tracking = GetNode<CharacterBody2D>("../Player");
+		tracking = GetNode<CharacterBody2D>("/root/Main Scene/Player");
 		inventoryOpen = false;
 	}
 
@@ -26,9 +26,11 @@ public partial class Camera : Camera2D
 		// If viewport was resized since last frame, update center
 		viewportCenter = GetViewportRect().Size / 2;
 
-		// If inventory is opened, stop moving the camera
-		if (Input.IsActionJustPressed("ui_inventory"))
+		// If inventory is opened, stop moving the camera and center it on char
+		if (Input.IsActionJustPressed("ui_inventory")) {
 			inventoryOpen = !inventoryOpen;
+			Position = tracking.Position;
+		}
 
 		Vector2 center = tracking.Position;
 		mousePos = GetViewport().GetMousePosition() - viewportCenter;

@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://mavekg7whh14"]
+[gd_scene load_steps=3 format=3 uid="uid://mavekg7whh14"]
 
 [ext_resource type="Script" path="res://scripts/DragPreview.cs" id="1_oakv1"]
+[ext_resource type="Texture2D" uid="uid://bk5nks08bi6as" path="res://assets/green_thermos_inventory.svg" id="1_scgsl"]
 
 [node name="DragPreview" type="Sprite2D"]
+texture = ExtResource("1_scgsl")
 script = ExtResource("1_oakv1")
