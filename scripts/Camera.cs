@@ -11,10 +11,13 @@ public partial class Camera : Camera2D
 	Vector2 mousePos;
 	Vector2 viewportCenter;
 
+	bool inventoryOpen;
+
 	public override void _Ready()
 	{
 		MakeCurrent();
 		tracking = GetNode<CharacterBody2D>("../Player");
+		inventoryOpen = false;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -22,6 +25,10 @@ public partial class Camera : Camera2D
 	{
 		// If viewport was resized since last frame, update center
 		viewportCenter = GetViewportRect().Size / 2;
+
+		// If inventory is opened, stop moving the camera
+		if (Input.IsActionJustPressed("ui_inventory"))
+			inventoryOpen = !inventoryOpen;
 
 		Vector2 center = tracking.Position;
 		mousePos = GetViewport().GetMousePosition() - viewportCenter;
@@ -36,6 +43,6 @@ public partial class Camera : Camera2D
 		if (Math.Abs(mousePos.Y) >= SafeArea)
 			calcPosition.Y = mousePos.Y > 0 ? center.Y + SafeArea : center.Y - SafeArea;
 			
-		Position = calcPosition;
+		Position = inventoryOpen ? Position : calcPosition;
 	}
 }

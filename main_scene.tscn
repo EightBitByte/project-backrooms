@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b0eto18wolhas"]
+[gd_scene load_steps=20 format=3 uid="uid://b0eto18wolhas"]
 
 [ext_resource type="Texture2D" uid="uid://b334gu4wh5n1p" path="res://assets/tileset.png" id="1_3t2vk"]
 [ext_resource type="Script" path="res://scripts/Camera.cs" id="1_i33g2"]
@@ -10,8 +10,11 @@
 [ext_resource type="Script" path="res://scripts/Enemy.cs" id="4_jrct8"]
 [ext_resource type="Texture2D" uid="uid://ccou43juaju00" path="res://assets/bar_hunger.svg" id="5_cyadm"]
 [ext_resource type="Texture2D" uid="uid://cdyt0soxawh6h" path="res://assets/bar_sanity.svg" id="6_acieh"]
+[ext_resource type="Texture2D" uid="uid://c7i84eu02nkvn" path="res://assets/inventory.svg" id="7_fpep3"]
+[ext_resource type="Texture2D" uid="uid://d4dgw1fs0rwxe" path="res://assets/thermos_grey.svg" id="8_ssu1p"]
 [ext_resource type="Texture2D" uid="uid://7ipkjv10suth" path="res://assets/character.svg" id="9_c7utj"]
 [ext_resource type="Script" path="res://scripts/Inventory.cs" id="10_d0yow"]
+[ext_resource type="Texture2D" uid="uid://difcb8ua3m5y2" path="res://assets/inventory_slot.svg" id="11_3vyof"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ra818"]
 texture = ExtResource("1_3t2vk")
@@ -64,6 +67,11 @@ size = Vector2(240, 480)
 size = Vector2(40, 90)
 
 [node name="Main Scene" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_hwufw")
+format = 2
+layer_0/tile_data = PackedInt32Array(1, 65537, 0, 2, 65537, 0, 3, 65537, 0, 4, 65537, 0, 5, 65537, 0, 6, 65537, 0, 7, 65537, 0, 8, 65537, 0, 9, 65537, 0, 10, 65537, 0, 0, 1, 0, 11, 131073, 0, 65537, 65537, 1, 65538, 65537, 1, 65539, 65537, 1, 65540, 65537, 1, 65541, 65537, 1, 65542, 65537, 1, 65543, 65537, 1, 65544, 65537, 1, 65545, 65537, 1, 65546, 65537, 1, 131082, 65537, 1, 196618, 65537, 1, 262154, 65537, 1, 327690, 65537, 1, 327689, 65537, 1, 262153, 65537, 1, 196617, 65537, 1, 131081, 65537, 1, 131080, 65537, 1, 131079, 65537, 1, 131078, 65537, 1, 131077, 65537, 1, 131076, 65537, 1, 131075, 65537, 1, 131074, 65537, 1, 131073, 65537, 1, 196609, 65537, 1, 196610, 65537, 1, 196611, 65537, 1, 196612, 65537, 1, 196613, 65537, 1, 196614, 65537, 1, 196615, 65537, 1, 196616, 65537, 1, 262152, 65537, 1, 262151, 65537, 1, 262150, 65537, 1, 262149, 65537, 1, 262148, 65537, 1, 262147, 65537, 1, 262146, 65537, 1, 262145, 65537, 1, 327681, 65537, 1, 327682, 65537, 1, 327683, 65537, 1, 327684, 65537, 1, 327685, 65537, 1, 327686, 65537, 1, 327687, 65537, 1, 327688, 65537, 1, 65536, 1, 1, 131072, 1, 1, 196608, 1, 1, 262144, 1, 1, 327680, 1, 1, 393216, 1, 2, 393217, 65537, 2, 393218, 65537, 2, 393219, 65537, 2, 393220, 65537, 2, 393221, 65537, 2, 393222, 65537, 2, 393223, 65537, 2, 393224, 65537, 2, 393225, 65537, 2, 393226, 65537, 2, 65547, 131073, 1, 131083, 131073, 1, 196619, 131073, 1, 262155, 131073, 1, 327691, 131073, 1, 393227, 131073, 2)
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(607, 323)
@@ -119,10 +127,135 @@ nine_patch_stretch = true
 texture_under = ExtResource("3_esal7")
 texture_progress = ExtResource("6_acieh")
 
-[node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_hwufw")
-format = 2
-layer_0/tile_data = PackedInt32Array(1, 65537, 0, 2, 65537, 0, 3, 65537, 0, 4, 65537, 0, 5, 65537, 0, 6, 65537, 0, 7, 65537, 0, 8, 65537, 0, 9, 65537, 0, 10, 65537, 0, 0, 1, 0, 11, 131073, 0, 65537, 65537, 1, 65538, 65537, 1, 65539, 65537, 1, 65540, 65537, 1, 65541, 65537, 1, 65542, 65537, 1, 65543, 65537, 1, 65544, 65537, 1, 65545, 65537, 1, 65546, 65537, 1, 131082, 65537, 1, 196618, 65537, 1, 262154, 65537, 1, 327690, 65537, 1, 327689, 65537, 1, 262153, 65537, 1, 196617, 65537, 1, 131081, 65537, 1, 131080, 65537, 1, 131079, 65537, 1, 131078, 65537, 1, 131077, 65537, 1, 131076, 65537, 1, 131075, 65537, 1, 131074, 65537, 1, 131073, 65537, 1, 196609, 65537, 1, 196610, 65537, 1, 196611, 65537, 1, 196612, 65537, 1, 196613, 65537, 1, 196614, 65537, 1, 196615, 65537, 1, 196616, 65537, 1, 262152, 65537, 1, 262151, 65537, 1, 262150, 65537, 1, 262149, 65537, 1, 262148, 65537, 1, 262147, 65537, 1, 262146, 65537, 1, 262145, 65537, 1, 327681, 65537, 1, 327682, 65537, 1, 327683, 65537, 1, 327684, 65537, 1, 327685, 65537, 1, 327686, 65537, 1, 327687, 65537, 1, 327688, 65537, 1, 65536, 1, 1, 131072, 1, 1, 196608, 1, 1, 262144, 1, 1, 327680, 1, 1, 393216, 1, 2, 393217, 65537, 2, 393218, 65537, 2, 393219, 65537, 2, 393220, 65537, 2, 393221, 65537, 2, 393222, 65537, 2, 393223, 65537, 2, 393224, 65537, 2, 393225, 65537, 2, 393226, 65537, 2, 65547, 131073, 1, 131083, 131073, 1, 196619, 131073, 1, 262155, 131073, 1, 327691, 131073, 1, 393227, 131073, 2)
+[node name="Inventory" type="Sprite2D" parent="Camera/CanvasLayer"]
+position = Vector2(606, 323)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("7_fpep3")
+script = ExtResource("10_d0yow")
+
+[node name="Item Sprite" type="Sprite2D" parent="Camera/CanvasLayer/Inventory"]
+position = Vector2(234.286, -162.857)
+scale = Vector2(0.21, 0.21)
+texture = ExtResource("8_ssu1p")
+
+[node name="Item Name" type="RichTextLabel" parent="Camera/CanvasLayer/Inventory"]
+offset_left = 82.8571
+offset_top = -50.0001
+offset_right = 169.857
+offset_bottom = -10.0001
+text = "Item Name"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Condition" type="RichTextLabel" parent="Camera/CanvasLayer/Inventory"]
+offset_left = 84.2857
+offset_top = -25.7143
+offset_right = 171.286
+offset_bottom = 14.2857
+text = "Condition"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+shortcut_keys_enabled = false
+
+[node name="Description" type="RichTextLabel" parent="Camera/CanvasLayer/Inventory"]
+offset_left = 80.0
+offset_top = 54.2857
+offset_right = 169.0
+offset_bottom = 94.2857
+text = "Description"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+shortcut_keys_enabled = false
+
+[node name="Inventory Grid" type="GridContainer" parent="Camera/CanvasLayer/Inventory"]
+offset_left = -383.0
+offset_top = -257.571
+offset_right = 29.0
+offset_bottom = 258.429
+columns = 4
+
+[node name="Slot0" type="TextureButton" parent="Camera/CanvasLayer/Inventory/Inventory Grid"]
+layout_mode = 2
+texture_normal = ExtResource("11_3vyof")
+
+[node name="Slot1" type="TextureButton" parent="Camera/CanvasLayer/Inventory/Inventory Grid"]
+layout_mode = 2
+texture_normal = ExtResource("11_3vyof")
+
+[node name="Slot2" type="TextureButton" parent="Camera/CanvasLayer/Inventory/Inventory Grid"]
+layout_mode = 2
+texture_normal = ExtResource("11_3vyof")
+
+[node name="Slot3" type="TextureButton" parent="Camera/CanvasLayer/Inventory/Inventory Grid"]
+layout_mode = 2
+texture_normal = ExtResource("11_3vyof")
+
+[node name="Slot4" type="TextureButton" parent="Camera/CanvasLayer/Inventory/Inventory Grid"]
+layout_mode = 2
+texture_normal = ExtResource("11_3vyof")
+
+[node name="Slot5" type="TextureButton" parent="Camera/CanvasLayer/Inventory/Inventory Grid"]
+layout_mode = 2
+texture_normal = ExtResource("11_3vyof")
+
+[node name="Slot6" type="TextureButton" parent="Camera/CanvasLayer/Inventory/Inventory Grid"]
+layout_mode = 2
+texture_normal = ExtResource("11_3vyof")
+
+[node name="Slot7" type="TextureButton" parent="Camera/CanvasLayer/Inventory/Inventory Grid"]
+layout_mode = 2
+texture_normal = ExtResource("11_3vyof")
+
+[node name="Slot8" type="TextureButton" parent="Camera/CanvasLayer/Inventory/Inventory Grid"]
+layout_mode = 2
+texture_normal = ExtResource("11_3vyof")
+
+[node name="Slot9" type="TextureButton" parent="Camera/CanvasLayer/Inventory/Inventory Grid"]
+layout_mode = 2
+texture_normal = ExtResource("11_3vyof")
+
+[node name="Slot10" type="TextureButton" parent="Camera/CanvasLayer/Inventory/Inventory Grid"]
+layout_mode = 2
+texture_normal = ExtResource("11_3vyof")
+
+[node name="Slot11" type="TextureButton" parent="Camera/CanvasLayer/Inventory/Inventory Grid"]
+layout_mode = 2
+texture_normal = ExtResource("11_3vyof")
+
+[node name="Slot12" type="TextureButton" parent="Camera/CanvasLayer/Inventory/Inventory Grid"]
+layout_mode = 2
+texture_normal = ExtResource("11_3vyof")
+
+[node name="Slot13" type="TextureButton" parent="Camera/CanvasLayer/Inventory/Inventory Grid"]
+layout_mode = 2
+texture_normal = ExtResource("11_3vyof")
+
+[node name="Slot14" type="TextureButton" parent="Camera/CanvasLayer/Inventory/Inventory Grid"]
+layout_mode = 2
+texture_normal = ExtResource("11_3vyof")
+
+[node name="Slot15" type="TextureButton" parent="Camera/CanvasLayer/Inventory/Inventory Grid"]
+layout_mode = 2
+texture_normal = ExtResource("11_3vyof")
+
+[node name="Slot16" type="TextureButton" parent="Camera/CanvasLayer/Inventory/Inventory Grid"]
+layout_mode = 2
+texture_normal = ExtResource("11_3vyof")
+
+[node name="Slot17" type="TextureButton" parent="Camera/CanvasLayer/Inventory/Inventory Grid"]
+layout_mode = 2
+texture_normal = ExtResource("11_3vyof")
+
+[node name="Slot18" type="TextureButton" parent="Camera/CanvasLayer/Inventory/Inventory Grid"]
+layout_mode = 2
+texture_normal = ExtResource("11_3vyof")
+
+[node name="Slot19" type="TextureButton" parent="Camera/CanvasLayer/Inventory/Inventory Grid"]
+layout_mode = 2
+texture_normal = ExtResource("11_3vyof")
 
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(607, 323)
@@ -134,9 +267,6 @@ texture = ExtResource("9_c7utj")
 
 [node name="Player Collider" type="CollisionShape2D" parent="Player"]
 shape = SubResource("RectangleShape2D_eu8nf")
-
-[node name="Inventory Handler" type="Node" parent="Player"]
-script = ExtResource("10_d0yow")
 
 [node name="Enemy" type="CharacterBody2D" parent="."]
 position = Vector2(508, 319)

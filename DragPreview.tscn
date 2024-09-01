@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://mavekg7whh14"]
+
+[ext_resource type="Script" path="res://scripts/DragPreview.cs" id="1_oakv1"]
+
+[node name="DragPreview" type="Sprite2D"]
+script = ExtResource("1_oakv1")

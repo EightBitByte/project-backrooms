@@ -14,6 +14,7 @@ public partial class Player : CharacterBody2D
 
 
 	private Vector2 calcVelocity = Vector2.Zero;
+	private bool inventoryOpen = false;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -31,6 +32,9 @@ public partial class Player : CharacterBody2D
 		calcVelocity.X = moveDirection.X != 0 ? moveDirection.X : calcVelocity.X;
 		calcVelocity.Y = moveDirection.Y != 0 ? moveDirection.Y : calcVelocity.Y;
 
+		if (Input.IsActionJustPressed("ui_inventory"))
+			inventoryOpen = !inventoryOpen;
+
 		// If no keys are held, slowly slow down the player
 		if (moveDirection.Y == 0 && moveDirection.X == 0) {
 			calcVelocity.Y *= Math.Abs(calcVelocity.Y) < StopThreshold ? 0 : MomentumRetained;
@@ -44,9 +48,10 @@ public partial class Player : CharacterBody2D
 			calcVelocity.X = 0;
 		}
 
-		Velocity = calcVelocity * Speed;
-
-		MoveAndSlide();
+		if (!inventoryOpen) {
+			Velocity = calcVelocity * Speed;
+			MoveAndSlide();
+		}
     }
 }
 

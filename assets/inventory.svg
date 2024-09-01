@@ -1,0 +1,18 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 550" width="800" height="550">
+	<title>inventory</title>
+	<style>
+		.s0 { fill: #2c2c2c } 
+		.s1 { fill: #444444 } 
+	</style>
+	<path id="Shape 1 copy" class="s0" d="m800 0v550h-328v-550z"/>
+	<path id="Shape 5 copy" class="s1" d="m787 13v208h-302v-208z"/>
+	<g id="Folder 1">
+		<path id="Shape 1" class="s0" d="m446 0v550h-446v-550z"/>
+		<path id="Shape 5" class="s1" d="m433 12.8v524.2h-420v-524.3z"/>
+		<path id="Shape 4" class="s0" d="m117 17v100h-100v-100zm104 0v100h-100v-100zm104 0v100h-100v-100zm104 0v100h-100v-100z"/>
+		<path id="Shape 4 copy" class="s0" d="m117 121v100h-100v-100zm104 0v100h-100v-100zm104 0v100h-100v-100zm104 0v100h-100v-100z"/>
+		<path id="Shape 4 copy 2" class="s0" d="m117 225v100h-100v-100zm104 0v100h-100v-100zm104 0v100h-100v-100zm104 0v100h-100v-100z"/>
+		<path id="Shape 4 copy 3" class="s0" d="m117 329v100h-100v-100zm104 0v100h-100v-100zm104 0v100h-100v-100zm104 0v100h-100v-100z"/>
+		<path id="Shape 4 copy 4" class="s0" d="m117 433v100h-100v-100zm104 0v100h-100v-100zm104 0v100h-100v-100zm104 0v100h-100v-100z"/>
+	</g>
+</svg>
