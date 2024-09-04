@@ -19,8 +19,13 @@ public partial class Item : TextureButton
 	}
 
 	private void ItemClick() {
-		GD.Print("Instantiation");
 		Sprite2D preview = ITEM_PREVIEW.Instantiate<Sprite2D>();
 		PreviewParent.AddChild(preview);
+
+		// Modify item's opacity
+		Color opacity = Modulate;
+		opacity.A = 0.5f;
+		Modulate = opacity;
 	}
+
 }
