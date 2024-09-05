@@ -3,7 +3,7 @@ using System;
 
 public partial class Item : TextureButton
 {
-	PackedScene ITEM_PREVIEW = GD.Load<PackedScene>("res://DragPreview.tscn");
+	PackedScene ITEM_PREVIEW = GD.Load<PackedScene>("res://scenes/DragPreview.tscn");
 	Node2D PreviewParent;
 
 	// Called when the node enters the scene tree for the first time.
@@ -20,6 +20,7 @@ public partial class Item : TextureButton
 
 	private void ItemClick() {
 		Sprite2D preview = ITEM_PREVIEW.Instantiate<Sprite2D>();
+		preview.GetChild<Sprite2D>(0).Texture = GetChild<Sprite2D>(0).Texture;
 		PreviewParent.AddChild(preview);
 
 		// Modify item's opacity

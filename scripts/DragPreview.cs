@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using static InventoryGrid;
 
 public partial class DragPreview : Sprite2D
 {

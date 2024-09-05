@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://n28smgyfpe10"]
+
+[ext_resource type="Texture2D" uid="uid://blvhqj2n1tje2" path="res://assets/inventory_long_border.svg" id="1_5j07y"]
+[ext_resource type="Script" path="res://scripts/Item.cs" id="2_uiosv"]
+[ext_resource type="Texture2D" uid="uid://cuhrbvb66rp7k" path="res://assets/thermos_green.svg" id="3_jvnte"]
+
+[node name="Item" type="CenterContainer"]
+offset_right = 100.0
+offset_bottom = 204.0
+
+[node name="Item Button" type="TextureButton" parent="."]
+layout_mode = 2
+texture_normal = ExtResource("1_5j07y")
+script = ExtResource("2_uiosv")
+
+[node name="Item Sprite" type="Sprite2D" parent="Item Button"]
+position = Vector2(50, 102)
+scale = Vector2(0.2, 0.198)
+texture = ExtResource("3_jvnte")

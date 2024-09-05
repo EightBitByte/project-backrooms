@@ -1,24 +1,23 @@
-[gd_scene load_steps=21 format=3 uid="uid://b0eto18wolhas"]
+[gd_scene load_steps=20 format=3 uid="uid://b0eto18wolhas"]
 
-[ext_resource type="Texture2D" uid="uid://b334gu4wh5n1p" path="res://assets/tileset.png" id="1_3t2vk"]
-[ext_resource type="Script" path="res://scripts/Camera.cs" id="1_i33g2"]
-[ext_resource type="Texture2D" uid="uid://c32ht4yk6hps" path="res://assets/talkinghead.svg" id="2_6oyeb"]
-[ext_resource type="Script" path="res://scripts/Player.cs" id="2_toai5"]
-[ext_resource type="Texture2D" uid="uid://d20ykarvxdnu2" path="res://assets/bar_under.svg" id="3_esal7"]
-[ext_resource type="Texture2D" uid="uid://m5h5vujqcxgg" path="res://assets/enemy.png" id="3_qbtwa"]
-[ext_resource type="Texture2D" uid="uid://balixl13pxt7" path="res://assets/bar_health.svg" id="4_fnujk"]
-[ext_resource type="Script" path="res://scripts/Enemy.cs" id="4_jrct8"]
-[ext_resource type="Texture2D" uid="uid://ccou43juaju00" path="res://assets/bar_hunger.svg" id="5_cyadm"]
-[ext_resource type="Texture2D" uid="uid://cdyt0soxawh6h" path="res://assets/bar_sanity.svg" id="6_acieh"]
-[ext_resource type="Texture2D" uid="uid://c7i84eu02nkvn" path="res://assets/inventory.svg" id="7_fpep3"]
-[ext_resource type="Texture2D" uid="uid://d4dgw1fs0rwxe" path="res://assets/thermos_grey.svg" id="8_ssu1p"]
-[ext_resource type="Texture2D" uid="uid://7ipkjv10suth" path="res://assets/character.svg" id="9_c7utj"]
-[ext_resource type="Script" path="res://scripts/Inventory.cs" id="10_d0yow"]
-[ext_resource type="Texture2D" uid="uid://difcb8ua3m5y2" path="res://assets/inventory_slot.svg" id="11_3vyof"]
-[ext_resource type="Script" path="res://scripts/InventoryGrid.cs" id="11_c42gd"]
+[ext_resource type="Texture2D" uid="uid://b334gu4wh5n1p" path="res://assets/tileset.png" id="1_6p242"]
+[ext_resource type="Script" path="res://scripts/Camera.cs" id="2_3mh1n"]
+[ext_resource type="Texture2D" uid="uid://c32ht4yk6hps" path="res://assets/talkinghead.svg" id="3_2puu1"]
+[ext_resource type="Texture2D" uid="uid://d20ykarvxdnu2" path="res://assets/bar_under.svg" id="4_f4xpj"]
+[ext_resource type="Texture2D" uid="uid://balixl13pxt7" path="res://assets/bar_health.svg" id="5_7iaxa"]
+[ext_resource type="Texture2D" uid="uid://ccou43juaju00" path="res://assets/bar_hunger.svg" id="6_mh3jk"]
+[ext_resource type="Texture2D" uid="uid://cdyt0soxawh6h" path="res://assets/bar_sanity.svg" id="7_ww5eh"]
+[ext_resource type="Texture2D" uid="uid://c7i84eu02nkvn" path="res://assets/inventory.svg" id="8_y3l47"]
+[ext_resource type="Texture2D" uid="uid://d4dgw1fs0rwxe" path="res://assets/thermos_grey.svg" id="9_fo51v"]
+[ext_resource type="Script" path="res://scripts/InventoryGrid.cs" id="10_nv6xb"]
+[ext_resource type="Texture2D" uid="uid://difcb8ua3m5y2" path="res://assets/inventory_slot.svg" id="11_st84t"]
+[ext_resource type="Script" path="res://scripts/Player.cs" id="12_ks3w5"]
+[ext_resource type="Texture2D" uid="uid://7ipkjv10suth" path="res://assets/character.svg" id="13_2mpuq"]
+[ext_resource type="Script" path="res://scripts/Enemy.cs" id="14_4qq6b"]
+[ext_resource type="Texture2D" uid="uid://m5h5vujqcxgg" path="res://assets/enemy.png" id="15_fldvu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ra818"]
-texture = ExtResource("1_3t2vk")
+texture = ExtResource("1_6p242")
 texture_region_size = Vector2i(100, 100)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -78,14 +77,14 @@ layer_0/tile_data = PackedInt32Array(1, 65537, 0, 2, 65537, 0, 3, 65537, 0, 4, 6
 position = Vector2(607, 323)
 scale = Vector2(0.15, 0.15)
 zoom = Vector2(1.25, 1.25)
-script = ExtResource("1_i33g2")
+script = ExtResource("2_3mh1n")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera"]
 
 [node name="Player Head" type="Sprite2D" parent="Camera/CanvasLayer"]
 position = Vector2(506, 566)
 scale = Vector2(0.247992, 0.247992)
-texture = ExtResource("2_6oyeb")
+texture = ExtResource("3_2puu1")
 
 [node name="Player Name" type="RichTextLabel" parent="Camera/CanvasLayer"]
 offset_left = 545.0
@@ -105,8 +104,8 @@ offset_right = 645.0
 offset_bottom = 588.0
 value = 95.0
 nine_patch_stretch = true
-texture_under = ExtResource("3_esal7")
-texture_progress = ExtResource("4_fnujk")
+texture_under = ExtResource("4_f4xpj")
+texture_progress = ExtResource("5_7iaxa")
 
 [node name="Hunger Bar" type="TextureProgressBar" parent="Camera/CanvasLayer"]
 offset_left = 545.0
@@ -115,8 +114,8 @@ offset_right = 645.0
 offset_bottom = 599.0
 value = 50.0
 nine_patch_stretch = true
-texture_under = ExtResource("3_esal7")
-texture_progress = ExtResource("5_cyadm")
+texture_under = ExtResource("4_f4xpj")
+texture_progress = ExtResource("6_mh3jk")
 
 [node name="Sanity Bar" type="TextureProgressBar" parent="Camera/CanvasLayer"]
 offset_left = 545.0
@@ -125,20 +124,19 @@ offset_right = 645.0
 offset_bottom = 610.0
 value = 90.0
 nine_patch_stretch = true
-texture_under = ExtResource("3_esal7")
-texture_progress = ExtResource("6_acieh")
+texture_under = ExtResource("4_f4xpj")
+texture_progress = ExtResource("7_ww5eh")
 
 [node name="Inventory" type="Sprite2D" parent="Camera/CanvasLayer"]
 visibility_layer = 2
 position = Vector2(606, 323)
 scale = Vector2(0.7, 0.7)
-texture = ExtResource("7_fpep3")
-script = ExtResource("10_d0yow")
+texture = ExtResource("8_y3l47")
 
 [node name="Item Sprite" type="Sprite2D" parent="Camera/CanvasLayer/Inventory"]
 position = Vector2(234.286, -162.857)
 scale = Vector2(0.21, 0.21)
-texture = ExtResource("8_ssu1p")
+texture = ExtResource("9_fo51v")
 
 [node name="Item Name" type="RichTextLabel" parent="Camera/CanvasLayer/Inventory"]
 offset_left = 82.8571
@@ -178,108 +176,108 @@ offset_top = -257.571
 offset_right = 29.0
 offset_bottom = 258.429
 columns = 4
-script = ExtResource("11_c42gd")
+script = ExtResource("10_nv6xb")
 
 [node name="Slot0" type="TextureButton" parent="Camera/CanvasLayer/Inventory/Inventory Grid"]
 layout_mode = 2
-texture_normal = ExtResource("11_3vyof")
+texture_normal = ExtResource("11_st84t")
 
 [node name="Slot1" type="TextureButton" parent="Camera/CanvasLayer/Inventory/Inventory Grid"]
 layout_mode = 2
-texture_normal = ExtResource("11_3vyof")
+texture_normal = ExtResource("11_st84t")
 
 [node name="Slot2" type="TextureButton" parent="Camera/CanvasLayer/Inventory/Inventory Grid"]
 layout_mode = 2
-texture_normal = ExtResource("11_3vyof")
+texture_normal = ExtResource("11_st84t")
 
 [node name="Slot3" type="TextureButton" parent="Camera/CanvasLayer/Inventory/Inventory Grid"]
 layout_mode = 2
-texture_normal = ExtResource("11_3vyof")
+texture_normal = ExtResource("11_st84t")
 
 [node name="Slot4" type="TextureButton" parent="Camera/CanvasLayer/Inventory/Inventory Grid"]
 layout_mode = 2
-texture_normal = ExtResource("11_3vyof")
+texture_normal = ExtResource("11_st84t")
 
 [node name="Slot5" type="TextureButton" parent="Camera/CanvasLayer/Inventory/Inventory Grid"]
 layout_mode = 2
-texture_normal = ExtResource("11_3vyof")
+texture_normal = ExtResource("11_st84t")
 
 [node name="Slot6" type="TextureButton" parent="Camera/CanvasLayer/Inventory/Inventory Grid"]
 layout_mode = 2
-texture_normal = ExtResource("11_3vyof")
+texture_normal = ExtResource("11_st84t")
 
 [node name="Slot7" type="TextureButton" parent="Camera/CanvasLayer/Inventory/Inventory Grid"]
 layout_mode = 2
-texture_normal = ExtResource("11_3vyof")
+texture_normal = ExtResource("11_st84t")
 
 [node name="Slot8" type="TextureButton" parent="Camera/CanvasLayer/Inventory/Inventory Grid"]
 layout_mode = 2
-texture_normal = ExtResource("11_3vyof")
+texture_normal = ExtResource("11_st84t")
 
 [node name="Slot9" type="TextureButton" parent="Camera/CanvasLayer/Inventory/Inventory Grid"]
 layout_mode = 2
-texture_normal = ExtResource("11_3vyof")
+texture_normal = ExtResource("11_st84t")
 
 [node name="Slot10" type="TextureButton" parent="Camera/CanvasLayer/Inventory/Inventory Grid"]
 layout_mode = 2
-texture_normal = ExtResource("11_3vyof")
+texture_normal = ExtResource("11_st84t")
 
 [node name="Slot11" type="TextureButton" parent="Camera/CanvasLayer/Inventory/Inventory Grid"]
 layout_mode = 2
-texture_normal = ExtResource("11_3vyof")
+texture_normal = ExtResource("11_st84t")
 
 [node name="Slot12" type="TextureButton" parent="Camera/CanvasLayer/Inventory/Inventory Grid"]
 layout_mode = 2
-texture_normal = ExtResource("11_3vyof")
+texture_normal = ExtResource("11_st84t")
 
 [node name="Slot13" type="TextureButton" parent="Camera/CanvasLayer/Inventory/Inventory Grid"]
 layout_mode = 2
-texture_normal = ExtResource("11_3vyof")
+texture_normal = ExtResource("11_st84t")
 
 [node name="Slot14" type="TextureButton" parent="Camera/CanvasLayer/Inventory/Inventory Grid"]
 layout_mode = 2
-texture_normal = ExtResource("11_3vyof")
+texture_normal = ExtResource("11_st84t")
 
 [node name="Slot15" type="TextureButton" parent="Camera/CanvasLayer/Inventory/Inventory Grid"]
 layout_mode = 2
-texture_normal = ExtResource("11_3vyof")
+texture_normal = ExtResource("11_st84t")
 
 [node name="Slot16" type="TextureButton" parent="Camera/CanvasLayer/Inventory/Inventory Grid"]
 layout_mode = 2
-texture_normal = ExtResource("11_3vyof")
+texture_normal = ExtResource("11_st84t")
 
 [node name="Slot17" type="TextureButton" parent="Camera/CanvasLayer/Inventory/Inventory Grid"]
 layout_mode = 2
-texture_normal = ExtResource("11_3vyof")
+texture_normal = ExtResource("11_st84t")
 
 [node name="Slot18" type="TextureButton" parent="Camera/CanvasLayer/Inventory/Inventory Grid"]
 layout_mode = 2
-texture_normal = ExtResource("11_3vyof")
+texture_normal = ExtResource("11_st84t")
 
 [node name="Slot19" type="TextureButton" parent="Camera/CanvasLayer/Inventory/Inventory Grid"]
 layout_mode = 2
-texture_normal = ExtResource("11_3vyof")
+texture_normal = ExtResource("11_st84t")
 
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(607, 323)
 scale = Vector2(0.15, 0.15)
-script = ExtResource("2_toai5")
+script = ExtResource("12_ks3w5")
 
 [node name="Player Sprite" type="Sprite2D" parent="Player"]
-texture = ExtResource("9_c7utj")
+texture = ExtResource("13_2mpuq")
 
 [node name="Player Collider" type="CollisionShape2D" parent="Player"]
 shape = SubResource("RectangleShape2D_eu8nf")
 
 [node name="Enemy" type="CharacterBody2D" parent="."]
 position = Vector2(508, 319)
-script = ExtResource("4_jrct8")
+script = ExtResource("14_4qq6b")
 speed = 0.0
 
 [node name="Enemy Sprite" type="Sprite2D" parent="Enemy"]
 position = Vector2(-0.00012207, 0)
 scale = Vector2(0.18, 0.18)
-texture = ExtResource("3_qbtwa")
+texture = ExtResource("15_fldvu")
 
 [node name="Enemy Collider" type="CollisionShape2D" parent="Enemy"]
 position = Vector2(0, -4)
