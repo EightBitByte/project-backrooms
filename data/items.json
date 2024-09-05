@@ -1,0 +1,33 @@
+{
+    "0": {
+        "name": "Almond Water (Grey)",
+        "description": "A slightly-worn grey thermos. Slightly sweet with a hint of almond flavor.",
+        "effects": {
+            "hunger": "33"
+        }
+    },
+    "1": {
+        "name": "Almond Water (Green)",
+        "description": "A frosted green bottle. Smells like a very sweet energy drink.",
+        "effects": {
+            "hunger": "20",
+            "caffeinated": "90"
+        }
+    },
+    "2": {
+        "name": "Almond Water (Red)",
+        "description": "A pristine red thermos. Life-saving -- if you can get over the extreme bitterness and fatigue.",
+        "effects": {
+            "health": "50",
+            "fatigue": "90"
+        }
+    },
+    "3": {
+        "name": "Almond Water (Blue)",
+        "description": "A battered blue thermos. Tastes like the water I remember from the frontrooms.",
+        "effects": {
+            "sanity": "25",
+            "fatigue": "20"
+        }
+    }
+}

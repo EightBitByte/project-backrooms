@@ -15,8 +15,10 @@ public partial class InventoryGrid : GridContainer
 	Godot.Collections.Array<CenterContainer> Items;
 
 	private enum Item {
+		GreyThermos,
 		GreenThermos,
-		RedThermos
+		RedThermos,
+		BlueThermos
 	}
 
 	// Called when the node enters the scene tree for the first time.
@@ -37,31 +39,43 @@ public partial class InventoryGrid : GridContainer
 		// Get and hide inventory root
 		INVENTORY_ROOT = GetParent<Sprite2D>();
 		INVENTORY_ROOT.Visible = false;
-
-		//NOTE: Temporary item(s) for debugging
-		AddNewItem(Item.RedThermos);
-
 	}
 
 	private void PlaceItem (int slotNum) {
 		GD.Print("Placing in slot ", slotNum);
-		
+	}
+
+	private void PickupItem (int itemIndex) {
+		GD.Print("Picking up item ", itemIndex);
 	}
 
 	private void AddNewItem (Item item) {
 		Texture2D itemSprite = null;
 
 		switch (item) {
+			case Item.GreyThermos:
+				itemSprite = GD.Load<Texture2D>("res://assets/thermos_grey.svg");
+				break;
+
 			case Item.GreenThermos:
 				itemSprite = GD.Load<Texture2D>("res://assets/thermos_green.svg");
 				break;
+				
 			case Item.RedThermos:
 				itemSprite = GD.Load<Texture2D>("res://assets/thermos_red.svg");
 				break;
+
+			case Item.BlueThermos:
+				itemSprite = GD.Load<Texture2D>("res://assets/thermos_blue.svg");
+				break;
+			
 		}
 
+		// Make new item and add child to inventory root
 		CenterContainer newItem = INVENTORY_ITEM.Instantiate<CenterContainer>();
-		INVENTORY_ROOT.CallDeferred("add_child", newItem);
+		INVENTORY_ROOT.AddChild(newItem);
+
+		//NOTE: Will need to find first available position to place item instead of overlapping
 		newItem.Position = Position;
 		newItem.GetChild<TextureButton>(0).GetChild<Sprite2D>(0).Texture = itemSprite;
 	}
@@ -72,6 +86,10 @@ public partial class InventoryGrid : GridContainer
 		if (Input.IsActionJustPressed("ui_inventory")) {
 			Input.WarpMouse(GetViewportRect().Size / 2);
 			INVENTORY_ROOT.Visible = !INVENTORY_ROOT.Visible;
+		}
+
+		if (Input.IsActionJustPressed("ui_accept")) {
+			AddNewItem(Item.RedThermos);
 		}
 	}
 }
